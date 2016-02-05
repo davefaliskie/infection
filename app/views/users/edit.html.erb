@@ -1,0 +1,28 @@
+<!-- links back to the main page -->
+<%= link_to "Back", :back %>
+
+<!-- the form where the users site_version can be updated -->
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  	<div class="padding">
+  		<%= @user.user_name%> is currently on version: <strong><%= @user.site_version %></strong>
+  	</div>
+	<div class="update_version">
+		<%= f.input :user_name, value: @user, label: "Name" %>
+
+	    <%= f.input :site_version, label: "Enter the new version name below." %>
+
+	    
+	   	<% User.all.each do |student| %>
+	   		<% if @user.coaches_student?(student) %>
+	   			<strong><%= student.user_name %></strong><em> Will also be updated.</em><br>
+	   		<% end%>
+
+	   	<% end %>
+
+
+	    <%= f.submit "Update" %>
+    </div>
+  
+<% end %>

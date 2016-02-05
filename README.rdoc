@@ -1,0 +1,28 @@
+== README
+Dave Faliskie created the following program, called Infection, for a project-based interview with Khan Academy.
+
+Infection was created using Ruby on Rails and MySQL
+Versions 
+	Rails 4.1.8
+	Ruby 2.1.2p95
+	MySQL  Ver 14.14 
+This can be run in a local environment that supports the above versions.
+
+>> The main page will list all the users
+>> All new users start on version 1.0 
+>> Users can have their versions changed by clicking 'Change Version' and entering a new version
+>> Users can add students by clicking 'Add Student'
+	>> When a user adds a student, that user becomes the coach, this coach-student relationship works so that coaches have students 
+	>> Users can have many coaches
+
+>> If a user is a student to many coaches, whichever coach updated the most recently will give their version to that student
+	>> Students of that user will be changes as well
+>> If a user changes their version all students of that user will be changed
+	>> Students of that user will be changes as well
+>> The implementation of ‘infection’ can be found in the users_controller update
+
+>> Notes: 
+		>> There are no permission restrictions meaning anyone can update anything.
+		>> When a new student is added they will stay on their current version 
+		>> There is no limited_infection implimented. 
+		

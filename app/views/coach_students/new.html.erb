@@ -1,0 +1,21 @@
+<div class="student_confirm">
+	<% if @coach_student %>
+
+		<%= simple_form_for(@coach_student) do |f| %>
+			<div>
+				<!-- gets the params throught he controller and sets the values for relationship -->
+				<%= f.hidden_field :user_id, value: @user.id %>
+				<%= f.hidden_field :student_id, value: @student.id %>
+
+				Are you sure you want to add <strong><%=@student.user_name%></strong> as one of your students?
+				<br>
+				<%= link_to "Cancel", :back %>
+				<%= f.submit "Yes, Add Student"%>
+
+			</div>
+
+		<% end %>
+
+	<% end %>
+</div>
+

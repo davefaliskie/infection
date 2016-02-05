@@ -1,0 +1,24 @@
+<%= link_to "home", root_path %>
+
+<h1><%= @user.user_name %> </h1> 
+<h3> Version: <%= @user.site_version%></h3>
+
+ <%= link_to "Change Your Version", edit_user_path(@user), class: "button" %>
+
+<br>
+<br>
+<h2>Add Students</h2>
+<% @users.each do |student| %>
+	<div class ="student_list">
+		<% if @user.coaches_student?(student) %>
+			<%= link_to student.user_name, user_path(student) %>
+			<span class="right">
+				<strong>Student</strong> <em>on verson: <%=student.site_version%></em>
+			</span>
+		<% else %>
+			<%= link_to student.user_name, user_path(student) %>
+			<%= link_to "add", new_coach_student_path(user_id: @user, student_id: student), 
+												  data: { user_id: @user.id, student_id: student.id }, class: "right"%>
+		<% end %>										  
+	</div>
+<% end %>

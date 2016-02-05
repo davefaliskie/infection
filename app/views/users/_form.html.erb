@@ -1,0 +1,13 @@
+<!-- The form for creating a new user-->
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div>
+    <%= f.input :user_name, label: 'Create a New User', placeholder: "Enter a Name" %>
+    <%= f.hidden_field :site_version, value: "1.0" %>
+
+    <%= f.submit "Add User" %>
+  </div>
+
+  
+<% end %>

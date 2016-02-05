@@ -1,0 +1,42 @@
+<h1>Infection</h1>
+
+<!-- Link to add a new user -->
+<div class="add_new_user_form">
+  <%= render 'form' %>
+</div>
+
+<!-- Will show a list of all the users -->
+<h2>Current Users</h2>
+<% @users.each do |user| %>
+
+  <div class="users_list">
+<!-- can delete user  -->
+
+    <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'right' %>
+    
+<!-- Displays the users information -->
+
+    <h3><%= user.user_name %></h3>
+    Current Version: <strong><%= user.site_version%></strong>
+    <br><br>
+<!-- will render the buttons to change version and add students -->
+
+    <div class="padding">
+      <%= link_to "Change Version", edit_user_path(user), class: "button" %>
+      <%= link_to "Add Student", user_path(user), class: "button" %>
+    </div>
+
+<!-- will display all the users students and version -->
+
+    <h4>Total Students: <%= user.students.count %></h4>
+    <div>
+      <% user.students.all.each do |student| %>
+        <ul>
+          <li><%= student.user_name %>, Version: <%= student.site_version %></li>
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
+
+<% end %>
