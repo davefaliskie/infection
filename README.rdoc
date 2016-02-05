@@ -6,7 +6,7 @@ Versions
 	Rails 4.1.8
 	Ruby 2.1.2p95
 	MySQL  Ver 14.14 
-This can be run in a local environment that supports the above versions.
+This can be run in a local environment that supports the above versions. or viewed at https://warm-castle-22759.herokuapp.com 
 
 >> The main page will list all the users
 >> All new users start on version 1.0 
